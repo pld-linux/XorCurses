@@ -1,0 +1,37 @@
+--- XorCurses-0.0.6b/Makefile~	2009-03-04 09:06:46.000000000 +0100
++++ XorCurses-0.0.6b/Makefile	2009-03-04 09:06:45.000000000 +0100
+@@ -3,7 +3,7 @@
+ # installed in some other location or you're packaging
+ # it:
+ 
+-PREFIX=/usr/local/
++PREFIX=/usr/
+ BINDIR=$(PREFIX)bin/
+ SHAREDIR=$(PREFIX)share/XorCurses/
+ MAPDIR=$(SHAREDIR)maps
+@@ -48,7 +48,7 @@
+ HEADERS:= $(wildcard *.h)
+ 
+ $(PROG): $(OBJS)
+-	$(CC) $(CFLAGS) $(OBJS) -o $(PROG) $(LIBS)
++	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJS) -o $(PROG) $(LIBS)
+ 	
+ %.o : %.c $(HEADERS)
+ 	$(CC) $(CFLAGS) -c $<
+@@ -60,10 +60,12 @@
+ 
+ 
+ install: $(PROG)
+-	install $(PROG) $(BINDIR)
+-	install -d $(MAPDIR)
+-	install -t $(MAPDIR) maps/[1-9]*
+-	install -t $(SHAREDIR) xorcurses*.txt
++	install -d $(DESTDIR)$(BINDIR)
++	install $(PROG) $(DESTDIR)$(BINDIR)
++	install -d $(DESTDIR)$(MAPDIR)
++	install -t $(DESTDIR)$(MAPDIR) maps/[1-9]*
++	install -d $(DESTDIR)$(SHAREDIR)
++	install -t $(DESTDIR)$(SHAREDIR) xorcurses*.txt
+ 
+ uninstall:
+ 	rm -f $(BINDIR)$(PROG)
