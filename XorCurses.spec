@@ -4,7 +4,7 @@ Name:		XorCurses
 Version:	0.0.6b
 Release:	1
 License:	GPL
-Group:		Applications
+Group:		Applications/Games
 Source0:	http://www.jwm-art.net/art/archive/%{name}-%{version}.tar.bz2
 # Source0-md5:	e86eaa885204857a65f40a7ecedb4077
 Patch0:		%{name}-Makefile.patch
