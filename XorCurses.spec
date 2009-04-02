@@ -10,7 +10,6 @@ Source0:	http://www.jwm-art.net/art/archive/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-Makefile.patch
 URL:		http://www.jwm-art.net/dark.php?p=XorCurses
 BuildRequires:	ncurses-devel
-BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -30,12 +29,11 @@ obiektów takich jak ryby, kurczaki czy bomby.
 %prep
 %setup -q
 %patch0 -p1
-%{__sed} -i 's@<curses.h>@<ncurses/curses.h>@' `grep -r -l '<curses.h>' .`
 
 %build
 %{__make} \
 	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags} -DDATADIR=\\\"%{_datadir}/%{name}/\\\"" \
+	CFLAGS="%{rpmcflags} -I/usr/include/ncurses -DDATADIR=\\\"%{_datadir}/%{name}/\\\"" \
 	LDFLAGS="%{rpmldflags}"
 
 %install
