@@ -8,7 +8,6 @@ Group:		Applications/Games
 Source0:	http://www.jwm-art.net/art/archive/%{name}-%{version}.tar.bz2
 # Source0-md5:	4205a018fb6f12d9c19b39a53c58c645
 Patch0:		%{name}-Makefile.patch
-Patch1:		%{name}-loops.patch
 URL:		http://www.jwm-art.net/dark.php?p=XorCurses
 BuildRequires:	ncurses-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -30,7 +29,6 @@ obiektów takich jak ryby, kurczaki czy bomby.
 %prep
 %setup -q
 %patch0 -p1
-#%%patch1 -p1
 
 %build
 %{__make} \
