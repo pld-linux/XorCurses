@@ -1,13 +1,14 @@
 Summary:	A remake of Xor by Astral Software
 Summary(pl.UTF-8):	Remake gry Xor stworzonej przez Astral Software
 Name:		XorCurses
-Version:	0.0.7
+Version:	0.0.8
 Release:	1
 License:	GPL
 Group:		Applications/Games
 Source0:	http://www.jwm-art.net/art/archive/%{name}-%{version}.tar.bz2
-# Source0-md5:	d09540a4dc83a6a9498c20730fca84fa
+# Source0-md5:	4205a018fb6f12d9c19b39a53c58c645
 Patch0:		%{name}-Makefile.patch
+Patch1:		%{name}-loops.patch
 URL:		http://www.jwm-art.net/dark.php?p=XorCurses
 BuildRequires:	ncurses-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -29,11 +30,12 @@ obiektów takich jak ryby, kurczaki czy bomby.
 %prep
 %setup -q
 %patch0 -p1
+#%%patch1 -p1
 
 %build
 %{__make} \
 	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags} -I/usr/include/ncurses -DDATADIR=\\\"%{_datadir}/%{name}/\\\"" \
+	CFLAGS="%{rpmcflags} -std=gnu99 -I/usr/include/ncurses -DDATADIR=\\\"%{_datadir}/%{name}/\\\"" \
 	LDFLAGS="%{rpmldflags}"
 
 %install
@@ -47,6 +49,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGES HACKING NEWS README TODO
+%doc CHANGES NEWS README TODO
 %attr(755,root,root) %{_bindir}/xorcurses
 %{_datadir}/%{name}
