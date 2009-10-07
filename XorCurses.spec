@@ -1,12 +1,12 @@
 Summary:	A remake of Xor by Astral Software
 Summary(pl.UTF-8):	Remake gry Xor stworzonej przez Astral Software
 Name:		XorCurses
-Version:	0.0.9
+Version:	0.1.1
 Release:	1
 License:	GPL v3+
 Group:		Applications/Games
 Source0:	http://www.jwm-art.net/art/archive/%{name}-%{version}.tar.bz2
-# Source0-md5:	0c989feaef1e253125ee8e15c560cdb8
+# Source0-md5:	d0741ccc146c34e80e3d10eabe7a09cb
 Patch0:		%{name}-Makefile.patch
 URL:		http://www.jwm-art.net/dark.php?p=XorCurses
 BuildRequires:	ncurses-devel
