@@ -1,12 +1,12 @@
 Summary:	A remake of Xor by Astral Software
 Summary(pl.UTF-8):	Remake gry Xor stworzonej przez Astral Software
 Name:		XorCurses
-Version:	0.1.1
+Version:	0.1.2
 Release:	1
 License:	GPL v3+
 Group:		Applications/Games
 Source0:	http://www.jwm-art.net/art/archive/%{name}-%{version}.tar.bz2
-# Source0-md5:	d0741ccc146c34e80e3d10eabe7a09cb
+# Source0-md5:	b5056fcc8a5e2028a20f1fab5ba8c714
 Patch0:		%{name}-Makefile.patch
 URL:		http://www.jwm-art.net/dark.php?p=XorCurses
 BuildRequires:	ncurses-devel
@@ -20,11 +20,11 @@ levels you are introduced to moving objects such as fish and chickens,
 and the bombs.
 
 %description -l pl.UTF-8
-Ideą Xor (XorCurses) jest wędrowanie przez szereg labiryntów
-zbierając maski. Pierwszy poziom jest łatwy, polega tylko na
-szukaniu prawidłowej drogi i zbieraniu masek, ale w miarę
-przechodzenia do kolejnych poziomów, gracz nauczy się przesuwania
-obiektów takich jak ryby, kurczaki czy bomby.
+Ideą Xor (XorCurses) jest wędrowanie przez szereg labiryntów zbierając
+maski. Pierwszy poziom jest łatwy, polega tylko na szukaniu
+prawidłowej drogi i zbieraniu masek, ale w miarę przechodzenia do
+kolejnych poziomów, gracz nauczy się przesuwania obiektów takich jak
+ryby, kurczaki czy bomby.
 
 %prep
 %setup -q
